@@ -26,13 +26,12 @@ def pwned_api_check(password):
 def main(text):
     The_file = input('Tell me the file name please ')
     my_file = open((The_file), mode='r')
-    text = my_file.read()
-    for password in str(text):
-        count = pwned_api_check(password)
-        if count:
-            print(f'{password} was found {count} times... you should change your pass')
-        else:
-            print(f'{password} was NOT FOUND. Carry on!')
+    password = my_file.read()
+    count = pwned_api_check(password)
+    if count:
+        print(f'{password} was found {count} times... you should change your pass')
+    else:
+        print(f'{password} was NOT FOUND. Carry on!')
     return 'done!'
 
 
